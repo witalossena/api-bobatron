@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const funcSchema = new Schema({
-    nome: String   
+    nome: { type: String }   
     
-}, { collection: "funcionarios"})
+}, { collection: 'funcionarios'})
 
 const User = mongoose.model('User', funcSchema);
 
