@@ -1,16 +1,20 @@
 const express = require('express');
 const cors = require('cors');
-const route = require('../routes/routes')
-require('dotenv').config()
-
-
-
-
+const router = require('../routes/routes');
+const db = require('../config/db');
+const bodyParser = require('body-parser')
+require('dotenv').config();
 const app = express()
+// routes = express.Router()
 
 app.use(cors())
-route(app)
 
+app.use(bodyParser.urlencoded({ extended: false }))
+
+app.use(bodyParser.json())
+
+
+router(app)
 
 app.listen(process.env.PORT, () => {
     console.log('listen on port 3000')
