@@ -25,3 +25,25 @@ exports.addEstoque = async(req, res) => {
         return res.status(400).send({ error: 'falha na operação ' + error })      
     }
 }
+
+exports.getEstoById = async(req, res) => {
+    try {
+        const estoque = await Estoque.findById(req.params.id);
+        return res.status(200).send(estoque)
+
+        
+    } catch (error) {   
+        return res.status(400).send({ error: 'falha na operação ' + error })      
+    }
+}
+
+exports.deleteEstoById = async(req, res) => {
+    try {
+        await Estoque.findByIdAndRemove(req.params.id);
+        return res.status(200).send({ mensagem: 'removido com sucesso'})
+
+        
+    } catch (error) {
+        return res.status(400).send({ error: 'falha na operação ' + error })             
+    }
+}

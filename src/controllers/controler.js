@@ -26,3 +26,25 @@ exports.addFunc = async(req, res) => {
         return res.status(400).send({ error: 'falha na operação ' + error })      
     }
 }
+
+exports.getFuncById = async(req, res) => {
+    try {
+        const funcionarios = await Funcionarios.findById(req.params.id);
+        return res.status(200).send(funcionarios)
+
+        
+    } catch (error) {   
+        return res.status(400).send({ error: 'falha na operação ' + error })      
+    }
+}
+
+exports.deleteById = async(req, res) => {
+    try {
+        await Funcionarios.findByIdAndRemove(req.params.id);
+        return res.status(200).send({ mensagem: 'removido com sucesso'})
+
+        
+    } catch (error) {
+        return res.status(400).send({ error: 'falha na operação ' + error })             
+    }
+}
