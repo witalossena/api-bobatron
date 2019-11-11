@@ -1,10 +1,13 @@
 
-const userController = require('../controllers/controler')
-var express = require('express');
+const FuncController = require('../controllers/controler')
+const EstoqController = require('../controllers/controller.estoque')
 
 module.exports = (app) => {
-    app.get('/', userController.getUser)  
-    app.post('/add', userController.addUser)  
+    app.get('/funcionarios', FuncController.getFunc)  
+    app.get('/estoque', EstoqController.getEstoque )
+    app.post('/novo-funcionario', FuncController.addFunc) 
+    app.post('/adiciona-estoque', EstoqController.addEstoque)  
+
 }
 
 

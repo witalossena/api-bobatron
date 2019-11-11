@@ -2,10 +2,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const funcSchema = new Schema({
-    nome: { type: String }   
+    nome: { type: String },
+    matricula: { type: String},
+    email: {type: String},
+    endereco: { type: String },
+    dataNasc: { type: String},
+    cargo: { type: String }   
+
     
 })
 
-const User = mongoose.model('User', funcSchema);
+const Funcionario = mongoose.model('Funcionario', funcSchema);
 
-module.exports =  User;
+module.exports =  Funcionario;
