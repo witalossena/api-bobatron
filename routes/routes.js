@@ -4,7 +4,7 @@ var express = require('express');
 
 module.exports = (app) => {
     app.get('/', userController.getUser)  
-    app.post('/', userController.addUser)  
+    app.post('/add', userController.addUser)  
 }
 
 
