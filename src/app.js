@@ -12,17 +12,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json())
 
-// const mongoose = require('mongoose')
-
-// mongoose.connect(process.env.DB_HOST,
-
-//    {
-//       useUnifiedTopology: true,
-//       useNewUrlParser: true
-      
-//   });
-
-
 router(app)
 
 app.listen(process.env.PORT || 3000, () => {
